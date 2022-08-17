@@ -11,23 +11,20 @@ import lombok.Data;
 
 @Entity
 @Data
-public class BookMark {
+public class FAQ {
 	/*
-	user_id 외래키
-	store_id 외래키
-	favorite_check int
+	faq_id NN 기본키
+	faq_q
+	faq_a
+	store_id NN 외래키
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long markId;
-	
-	@ManyToOne(targetEntity = UserInfo.class)
-	@JoinColumn(name = "USER_ID")
-	private String userId;
+	private Long faqId;
+	private String question;
+	private String answer;
 	
 	@ManyToOne(targetEntity = Store.class)
-	@JoinColumn(name = "STORE_ID")
+	@JoinColumn(name = "store_id")
 	private Long storeId;
-	
-	private int favoriteCheck;
 }

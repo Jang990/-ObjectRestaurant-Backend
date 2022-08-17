@@ -12,9 +12,19 @@ import lombok.Data;
 @Entity
 @Data
 public class Store {
+	/*
+	store_id  NN 기본키
+	store_name NN
+	store_address NN
+	store_time NN
+	store_images  BLOB방식
+	store_mension
+	ceo_id NN 외래키
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long storeId;
+	private String storeName;
 	private String storeAddress;
 	private String storeTime;
 	private String storeImage;

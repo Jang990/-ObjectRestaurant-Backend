@@ -11,23 +11,23 @@ import lombok.Data;
 
 @Entity
 @Data
-public class BookMark {
+public class Menu {
 	/*
-	user_id 외래키
-	store_id 외래키
-	favorite_check int
+	menu_name NN
+	menu_image NN BLOB방식
+	menu_price NN
+	menu_info
+	store_id NN 외래키 및 기본키
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long markId;
-	
-	@ManyToOne(targetEntity = UserInfo.class)
-	@JoinColumn(name = "USER_ID")
-	private String userId;
+	private Long id;
+	private String menuName;
+	private String menuImage;
+	private int menuPrice;
+	private String menuInfo;
 	
 	@ManyToOne(targetEntity = Store.class)
-	@JoinColumn(name = "STORE_ID")
-	private Long storeId;
-	
-	private int favoriteCheck;
+	@JoinColumn(name = "store_id")
+	private String storeId;
 }
