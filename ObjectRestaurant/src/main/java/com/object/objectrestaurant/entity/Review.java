@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class review {
+public class Review {
 	/*
 	review_id NN 기본키
 	review_image1  BLOB방식
