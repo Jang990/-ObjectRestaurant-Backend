@@ -89,14 +89,7 @@ public class garbeage {
         map=new HashMap<>();
     }
     
-    final static private String URL = "http://218.236.123.14:9090/login.php";
-    public Request_User_Login(String userID, String userPassword, Response.Listener<String> listener) {
-        
-    	super(Method.POST, URL, listener, null);
-        map = new HashMap<>();
-        map.put("user_id",userID);
-        map.put("user_pw", userPassword);
-    }
+    
     
     final static  private String URL="http://218.236.123.14:9090/load_User_Review.php";
     public Request_User_Review(String userID, Response.Listener<String>listener){
