@@ -17,40 +17,19 @@ public class garbeage {
         map=new HashMap<>();
     }
     
-    
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/Register.php";
-    public Request_Register(String userID, String userPassword, String userName, Response.Listener<String> listener) {
-     
-    	super(Method.POST, URL, listener, null);
-        map = new HashMap<>();
-        map.put("user_id",userID);
-        map.put("user_pw", userPassword);
-        map.put("user_nickname", userName);
-    }
-    
-    
-
+    //?? 이 둘은 뭐에 쓰는거지?
     final static  private String URL="http://218.236.123.14:9090/load_user_alldata.php";
     public Request_User_AllData(Response.Listener<String>listener){
     	
         super(Method.POST,URL,listener,null);
         map=new HashMap<>();
     }
-    
-    
-    
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/Validate_ID.php";
-    public Request_Validate(String userID, Response.Listener<String>listener){
+    final static private String URL="http://218.236.123.14:9090/load_user_nickname.php"; //사용자 닉네임 가져옴?
+    public Request_get_user_nickname(Response.Listener<String>listener){
 
-    	super(Request.Method.POST,URL,listener,null);
+    	super(Method.POST,URL,listener,null);
         map=new HashMap<>();
-        map.put("user_id",userID);
     }
-    
     
     final static  private String URL="http://218.236.123.14:9090/delete_faq.php";
     public Request_delete_faq(int store_id, Response.Listener<String>listener){
@@ -60,18 +39,6 @@ public class garbeage {
         map.put("faq_id",String.valueOf(store_id));
     }
     
-    final static  private String URL="http://218.236.123.14:9090/delete_user_favorite.php";
-    public Request_delete_favorite(String userid,int storeid, Response.Listener<String>listener){
-     
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        System.out.println("유저아이디보내ㅑ지냐:"+userid);
-        map.put("user_id",userid);
-        map.put("store_id",String.valueOf(storeid));
-    }
-    
-    
-	
     
     final static  private String URL="http://218.236.123.14:9090/load_ceo_reservation.php";
     public Request_get_CEO_reservation(int storeid, Response.Listener<String>listener){
@@ -98,72 +65,7 @@ public class garbeage {
         System.out.println("스토어아이디값은요@@"+store_id);
     }
     
-    final static  private String URL="http://218.236.123.14:9090/load_user_favorite.php";
-    public Request_get_favorite(String userid, Response.Listener<String>listener){
-     
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        System.out.println("유저아이디보내ㅑ지냐:"+userid);
-        map.put("user_id",userid);
-    }
     
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/load_user_nickname.php";
-    public Request_get_user_nickname(Response.Listener<String>listener){
-
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-    }
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/load_user_reservation.php";
-    public Request_get_user_reservation(String userid, Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
-
-        map=new HashMap<>();
-        map.put("user_id",userid);
-    }
-
-    
-    final static  private String URL="http://218.236.123.14:9090/get_user_favorite_item.php";
-    public Request_get_user_store_favorite(String userid, Response.Listener<String>listener){
-        
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        map.put("user_id",userid);
-    }
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/input_reservation.php";
-    public Request_input_reservation(String userid,String usernickname,int storeid,String date,String time,
-                                     String people,String check,String storename,String storeaddress,Response.Listener<String>listener){
-
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        System.out.println("유저아이디보내ㅑ지냐:"+userid);
-        map.put("user_id",userid);
-        map.put("user_nickname",usernickname);
-        map.put("store_id",String.valueOf(storeid));
-        map.put("reservation_date",date);
-        map.put("reservation_time",time);
-        map.put("reservation_people",people);
-        map.put("reservation_check",check);
-        map.put("reservation_storename",storename);
-        map.put("reservation_storeaddress",storeaddress);
-    }
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/input_user_favorite.php";
-    public Request_input_user_favorite(String userid,int storeid, Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
-
-        map=new HashMap<>();
-        System.out.println("유저아이디보내ㅑ지냐:"+userid);
-        System.out.println("스토어아디보내지냐"+storeid);
-        map.put("user_id",userid);
-        map.put("store_id",String.valueOf(storeid));
-    }
     
     
     final static  private String URL="http://218.236.123.14:9090/update_ceo_mension.php";
