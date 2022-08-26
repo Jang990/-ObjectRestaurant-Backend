@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/store")
 public class storeController {
-
 	/*
 	String URL="http://218.236.123.14:9090/load_store_id.php"; // ceoid 주고 스토어가져오기
     public Request_Store_ID(String userID, Response.Listener<String>listener){
@@ -21,6 +20,11 @@ public class storeController {
         map.put("ceo_id",userID);
     }
 	 */
+	
+	@GetMapping("")
+	public String getStoreAll() {
+		return "모든 스토어 정보 가져오기";
+	}
 	
 	/*
 	String URL="http://218.236.123.14:9090/input_store_info.php";//store(name, address, time, img, mension, ceoid)주고 생성
@@ -40,7 +44,6 @@ public class storeController {
 	 */
 	@PostMapping("")
 	public String registerStore() {
-//		System.out.println("====>id 테스트: " + storeId);
 		return "스토어 등록";
 	}
 	
@@ -63,15 +66,15 @@ public class storeController {
     }
 	 */
 	@GetMapping("/{storeId}")
-	public String getStoreInfo(@PathVariable(name = "storeId")String storeId
+	public String getStore(@PathVariable(name = "storeId")String storeId
 			, @RequestParam(required = false) String select) {
 		if(select == null)
-			return "스토어 Deep";
+			return "스토어id '"+storeId+"'의 세부정보 가져오기";
 		
 		if(select.equals("name"))
-			return "스토어의 이름만 가져오기";
+			return "스토어id '"+storeId+"'의 이름만 가져오기";
 		
-		return "스토어의 "+select+"만 가져오기";
+		return "스토어id '"+storeId+"'의 "+select+"만 가져오기";
 	}
 	
 	
