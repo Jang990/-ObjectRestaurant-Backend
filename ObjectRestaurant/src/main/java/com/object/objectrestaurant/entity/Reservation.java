@@ -42,9 +42,9 @@ public class Reservation {
 	@JoinColumn(name = "user_id")
 	private String userId;
 	
-	@ManyToOne(targetEntity = UserInfo.class)
-	@JoinColumn(name = "nickname")
-	private String userNickname;
+//	@ManyToOne(targetEntity = UserInfo.class)
+//	@JoinColumn(name = "nickname")
+//	private String userNickname;
 	
 	@ManyToOne(targetEntity = Store.class)
 	@JoinColumn(name = "store_id")

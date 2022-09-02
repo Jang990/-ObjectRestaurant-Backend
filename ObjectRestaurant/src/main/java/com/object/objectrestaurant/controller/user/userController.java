@@ -23,6 +23,7 @@ public class userController {
 	 */
 	@PostMapping("")
 	public String registerUser() {
+		//시큐리티 연동부분.
 		return "사용자 등록";
 	}
 	

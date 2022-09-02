@@ -8,4 +8,5 @@ import com.object.objectrestaurant.entity.UserInfo;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, String>{
 	Optional<UserInfo> findByUserId(String userId);
+	
 }
