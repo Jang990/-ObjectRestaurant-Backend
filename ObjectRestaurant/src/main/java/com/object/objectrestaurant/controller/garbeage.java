@@ -10,14 +10,8 @@ public class garbeage {
         map.put("ceo_pw", userPassword);
     }
 	
-	final static  private String URL="http://218.236.123.14:9090/load_ceo_alldata.php";
-    public Request_Ceo_AllData(Response.Listener<String>listener){
     
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-    }
-    
-    //?? 이 둘은 뭐에 쓰는거지?
+    //?? 이 셋은 뭐에 쓰는거지?
     final static  private String URL="http://218.236.123.14:9090/load_user_alldata.php";
     public Request_User_AllData(Response.Listener<String>listener){
     	
@@ -30,6 +24,14 @@ public class garbeage {
     	super(Method.POST,URL,listener,null);
         map=new HashMap<>();
     }
+    final static  private String URL="http://218.236.123.14:9090/load_ceo_alldata.php";
+    public Request_Ceo_AllData(Response.Listener<String>listener){
+    	
+    	super(Method.POST,URL,listener,null);
+    	map=new HashMap<>();
+    }
+    
+    
     
     final static  private String URL="http://218.236.123.14:9090/delete_faq.php";
     public Request_delete_faq(int store_id, Response.Listener<String>listener){
@@ -40,21 +42,7 @@ public class garbeage {
     }
     
     
-    final static  private String URL="http://218.236.123.14:9090/load_ceo_reservation.php";
-    public Request_get_CEO_reservation(int storeid, Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
-
-        map=new HashMap<>();
-        map.put("store_id",String.valueOf(storeid));
-    }
     
-    final static  private String URL="http://218.236.123.14:9090/load_ceo_store_info.php";
-    public Request_get_CEO_storeInfo(String userID, Response.Listener<String>listener){
-
-    	super(Request.Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        map.put("ceo_id",userID);
-    }
     
     final static  private String URL="http://218.236.123.14:9090/get_faq.php";
     public Request_get_faq(int store_id, Response.Listener<String>listener){
@@ -63,18 +51,6 @@ public class garbeage {
         map=new HashMap<>();
         map.put("store_id",String.valueOf(store_id));
         System.out.println("스토어아이디값은요@@"+store_id);
-    }
-    
-    
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/update_ceo_mension.php";
-    public Request_insert_ceo_mension(int reviewid,String ceo_review, Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
-
-        map=new HashMap<>();
-        map.put("review_id",String.valueOf(reviewid));
-        map.put("review_ceo_mension",ceo_review);
     }
     
     
@@ -95,28 +71,6 @@ public class garbeage {
     	super(Method.POST,URL,listener,null);
         map=new HashMap<>();
         map.put("store_id",String.valueOf(store_id));
-    }
-    
-    
-    
-    
-    final static  private String URL="http://218.236.123.14:9090/update_ceo_reservation.php";
-    public Request_update_ceo_reservation(int reservation_id,String c, Response.Listener<String>listener){
-        
-    	super(Method.POST,URL,listener,null);
-        map=new HashMap<>();
-        map.put("reservation_id",String.valueOf(reservation_id));
-        map.put("reservation_check",c);
-    }
-
-    
-    final static  private String URL="http://218.236.123.14:9090/update_ceo_reservation_reject.php";
-    public Request_update_ceo_reservation_reject(int reservation_id, String c, Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
-
-        map=new HashMap<>();
-        map.put("reservation_id",String.valueOf(reservation_id));
-        map.put("reservation_check",c);
     }
     
     
