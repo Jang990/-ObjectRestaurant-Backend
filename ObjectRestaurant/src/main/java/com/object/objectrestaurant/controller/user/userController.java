@@ -6,9 +6,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.object.objectrestaurant.dto.UserInfoData;
+import com.object.objectrestaurant.service.UserAuthService;
+
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class userController {
+	
+	private final UserAuthService userAuthService;
+	
 	
 	/*
 	String URL="http://218.236.123.14:9090/Register.php";
@@ -22,9 +31,13 @@ public class userController {
     }
 	 */
 	@PostMapping("")
-	public String registerUser() {
-		//시큐리티 연동부분.
-		return "사용자 등록";
+	public String registerUser(UserInfoData user) {
+		if(user.getUserId() == null
+				|| user.getUserPw() == null 
+				|| user.getNickname() == null) return "정확한 사용자 데이터 필요";
+		
+		if(userAuthService.registerUser(user)) return "사용자 등록 완료";
+		else return "사용자 등록 실패";
 	}
 	
 	/*
