@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.object.objectrestaurant.dto.UserInfoData;
 import com.object.objectrestaurant.service.UserAuthService;
+import com.object.objectrestaurant.service.user.SpecificUserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class userController {
 	
 	private final UserAuthService userAuthService;
+	private final SpecificUserService specificUserService;
 	
 	
 	/*
@@ -50,8 +52,8 @@ public class userController {
     }
     */
 	@GetMapping("/{userId}")
-	public String getUser(@PathVariable String userId) {
-		return "ID가 '"+userId + "'인 사용자 검색";
+	public UserInfoData getUser(@PathVariable String userId) {
+		return specificUserService.getUser(userId);
 	}
 	
 }
