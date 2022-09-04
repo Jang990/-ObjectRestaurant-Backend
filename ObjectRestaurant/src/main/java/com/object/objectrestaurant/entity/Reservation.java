@@ -38,16 +38,16 @@ public class Reservation {
 	private int reservationChild;
 	private String reservationState;//?
 	
-	@ManyToOne(targetEntity = UserInfo.class)
+	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private String userId;
+	private UserInfo user;
 	
 //	@ManyToOne(targetEntity = UserInfo.class)
 //	@JoinColumn(name = "nickname")
 //	private String userNickname;
 	
-	@ManyToOne(targetEntity = Store.class)
+	@ManyToOne
 	@JoinColumn(name = "store_id")
-	private Long storeId;
+	private Store store;
 	
 }

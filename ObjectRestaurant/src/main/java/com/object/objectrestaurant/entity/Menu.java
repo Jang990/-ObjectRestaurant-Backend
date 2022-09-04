@@ -27,7 +27,7 @@ public class Menu {
 	private int menuPrice;
 	private String menuInfo;
 	
-	@ManyToOne(targetEntity = Store.class)
+	@ManyToOne
 	@JoinColumn(name = "store_id")
-	private String storeId;
+	private Store store;
 }

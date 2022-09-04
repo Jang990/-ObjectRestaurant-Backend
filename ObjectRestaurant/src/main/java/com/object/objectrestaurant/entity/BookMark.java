@@ -21,13 +21,13 @@ public class BookMark {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long markId;
 	
-	@ManyToOne(targetEntity = UserInfo.class)
+	@ManyToOne
 	@JoinColumn(name = "USER_ID")
-	private String userId;
+	private UserInfo user;
 	
-	@ManyToOne(targetEntity = Store.class)
+	@ManyToOne
 	@JoinColumn(name = "STORE_ID")
-	private Long storeId;
+	private Store store;
 	
 	private int favoriteCheck;
 }

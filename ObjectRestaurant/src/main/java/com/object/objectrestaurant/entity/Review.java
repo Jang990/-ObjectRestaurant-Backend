@@ -40,11 +40,11 @@ public class Review {
 	private String reviewImage2;
 	private String reviewImage3;
 	
-	@ManyToOne(targetEntity = UserInfo.class)
+	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private String userId;
+	private UserInfo user;
 	
-	@ManyToOne(targetEntity = Store.class)
+	@ManyToOne
 	@JoinColumn(name = "store_id")
-	private Long storeId;
+	private Store store;
 }

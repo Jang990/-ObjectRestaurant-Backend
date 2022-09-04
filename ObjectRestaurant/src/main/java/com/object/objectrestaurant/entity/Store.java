@@ -30,7 +30,7 @@ public class Store {
 	private String storeImage;
 	private String storeMension;
 	
-	@ManyToOne(targetEntity = CeoInfo.class)
+	@ManyToOne
 	@JoinColumn(name="CEO_ID")
-	private String ceoId;
+	private CeoInfo ceoId;
 }

@@ -24,7 +24,7 @@ public class FAQ {
 	private String question;
 	private String answer;
 	
-	@ManyToOne(targetEntity = Store.class)
+	@ManyToOne
 	@JoinColumn(name = "store_id")
-	private Long storeId;
+	private Store store;
 }
