@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.object.objectrestaurant.dto.BookmarkData;
+import com.object.objectrestaurant.service.user.SpecificUserService;
+
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/user/{userId}/favorite")
 public class userFavoriteController {
+	private final SpecificUserService specificUserService;
 	
 	/*
 	String URL="http://218.236.123.14:9090/get_user_favorite_item.php"; //사용자id 받아서 즐겨찾기 아이템 가져옴
@@ -31,8 +38,9 @@ public class userFavoriteController {
     }
 	 */
 	@GetMapping()
-	public String getFavoriteStore(@PathVariable(name = "userId") String userId) {
-		return "유저 '"+userId+"'의 스토어 '모든' 즐겨찾기 가져오기";
+	public BookmarkData getFavoriteStore(@PathVariable(name = "userId") String userId) {
+//		return "유저 '"+userId+"'의 스토어 '모든' 즐겨찾기 가져오기";
+		return specificUserService.getBookMark(userId);
 	}
 	
 	/*
